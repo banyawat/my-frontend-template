@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    common:
+        build: .
+        working_dir: /usr/app
+        image: node:10.16.0-alpine
+        command: ['/bin/sh', '-c', 'yarn && yarn dev']
+        environment:
+            PORT: 3000
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/usr/app
